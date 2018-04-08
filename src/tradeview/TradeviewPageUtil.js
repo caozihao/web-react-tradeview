@@ -1,5 +1,5 @@
 
-import $ from "jQuery";
+import $ from "jquery";
 const datafeedConfig = (params) => {
   let { resolution, Datafeeds, serverUrl, pushInterval } = params;
 

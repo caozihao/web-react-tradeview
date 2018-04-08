@@ -15,7 +15,7 @@ let { configJSON, symbolResolveJSON } = datafeedConfig;
 
 var Datafeeds = {};
 
-import $ from "jQuery";
+import $ from "jquery";
 
 Datafeeds.UDFCompatibleDatafeed = function (datafeedURL, updateFrequency, protocolVersion) {
 
