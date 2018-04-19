@@ -1,7 +1,8 @@
 
-import $ from "jquery";
+import $ from 'jquery';
+
 const datafeedConfig = (params) => {
-  let { resolution, Datafeeds, serverUrl, pushInterval } = params;
+  const { resolution, Datafeeds, serverUrl, pushInterval } = params;
 
   return {
     debug: false,
@@ -10,7 +11,7 @@ const datafeedConfig = (params) => {
     interval: resolution,
     container_id: 'tv_chart_container',
     datafeed: new Datafeeds.UDFCompatibleDatafeed(serverUrl, pushInterval),
-    width: "1000",
+    width: '1000',
     // libraryPath: 'http://192.168.6.75/charting_library/',
     locale: 'zh',
     drawings_access: {
@@ -20,7 +21,7 @@ const datafeedConfig = (params) => {
       }],
     },
     // autosize: true,
-    "timezone": "Asia/Shanghai",
+    timezone: 'Asia/Shanghai',
     disabled_features: [
       'header_symbol_search',
       'use_localstorage_for_settings',
@@ -33,7 +34,7 @@ const datafeedConfig = (params) => {
       'timeframes_toolbar',
       'context_menus',
       'left_toolbar',
-      'header_indicators', //图表指标
+      'header_indicators', // 图表指标
       // 'header_settings', //设置
       'header_resolutions',  //时间下拉框
       // 'header_fullscreen_button' //全屏按钮
@@ -63,90 +64,67 @@ const datafeedConfig = (params) => {
       // 'mainSeriesProperties.haStyle.borderColor': '#000',
       // 'scalesProperties.lineColor': '#000'
     },
-  }
-}
+  };
+};
 
 const chartReady = (widget) => {
-  let buttonArr = [
+  const buttonArr = [
     {
-      value: "1",
-      period: "1min",
-      text: "分时",
+      value: '1',
+      period: '1min',
+      text: '分时',
+      chartType: 3,
     },
     {
-      value: "1",
-      period: "1min",
-      text: "1min",
+      value: '15',
+      period: '15min',
+      text: '15分',
     },
     {
-      value: "5",
-      period: "5min",
-      text: "5min",
+      value: '60',
+      period: '1hour',
+      text: '1小时',
     },
     {
-      value: "15",
-      period: "15min",
-      text: "15min",
+      value: '240',
+      period: '4hour',
+      text: '4小时',
     },
     {
-      value: "30",
-      period: "30min",
-      text: "30min",
+      value: '1D',
+      period: '1D',
+      text: '日线',
     },
     {
-      value: "60",
-      period: "1hour",
-      text: "1hour",
+      value: '1W',
+      period: '1W',
+      text: '周线',
     },
     {
-      value: "120",
-      period: "2hour",
-      text: "2hour",
+      value: '1M',
+      period: '1M',
+      text: '月线',
     },
-    {
-      value: "240",
-      period: "4hour",
-      text: "4hour",
-    },
-    {
-      value: "360",
-      period: "6hour",
-      text: "6hour",
-    },
-    {
-      value: "720",
-      period: "12hour",
-      text: "12hour",
-    },
-    {
-      value: "1D",
-      period: "1D",
-      text: "日线",
-    },
-    {
-      value: "1W",
-      period: "1W",
-      text: "周线",
-    },
-  ]
+  ];
+
 
   let btn = {};
 
-  let handleClick = (e, value) => {
+  const handleClick = (e, value) => {
     widget.chart().setResolution(value);
     $(e.target).addClass('select').closest('div.space-single').siblings('div.space-single').find('div.button').removeClass('select');
-  }
+  };
 
   buttonArr.forEach((v, i) => {
-    btn = widget.createButton().on('click', function (e) {
+    btn = widget.createButton().on('click', (e) => {
       handleClick(e, v.value);
     });
     btn[0].innerHTML = v.text;
     btn[0].title = v.text;
-  })
-}
+  });
+};
 
 export default {
   datafeedConfig,
-  chartReady
-}
+  chartReady,
+};
