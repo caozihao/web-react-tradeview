@@ -4,18 +4,23 @@
 
 请务必配合我的另一个项目[node-websocket-tradeview](https://github.com/caozihao/node-websocket-tradeview)来使用！！！那个项目使用websocket提供数据服务
 
+## 申明（重要！）
+
+### 本项目仅供学习！不要用来作为商业用途！！！
+
+* 想要发布到外网，必须要填表申请资格
+
 ## 启动
 
 
     npm install
     npm start
 
-
 ## 说明
 
 * 项目跑不起来请联系我，QQ：1154791107。正常安装执行命令的话是没什么问题的
 
-* Tradeview图表版本是最新版的1.12，要想正式使用必须要填表申请（群文件内有，仅供学习）
+* Tradeview图表版本是最新版的1.12
 
 * datafeed.js采用的是1.4版本的（群文件内有），不是1.12TS版本的
 
